@@ -72,7 +72,8 @@
       "root": "libs/customer-portal/ui/src",
       "test": "../../../../test.js",
       "appRoot": "",
-      "tags": []
+      "tags": [],
+      "prefix": "ddc"
     },
     {
       "name": "$workspaceRoot",
