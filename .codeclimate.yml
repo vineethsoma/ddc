@@ -1,0 +1,7 @@
+version: "2"
+plugins:
+  scss-lint:
+    enabled: true
+  tslint:
+    enabled: true
+    config: tslint.json

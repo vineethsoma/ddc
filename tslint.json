@@ -77,7 +77,7 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      ["app", "ddc", "cp"],
       "kebab-case"
     ],
     "no-output-on-prefix": true,

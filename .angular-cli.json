@@ -49,9 +49,9 @@
         "styles.scss"
       ],
       "scripts": [
-        "..\\..\\..\\node_modules\\jquery\\dist\\jquery.min.js",
-        "..\\..\\..\\node_modules\\popper.js\\dist\\umd\\popper.js",
-        "..\\..\\..\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js"
+        "../../../node_modules/jquery/dist/jquery.min.js",
+        "../../../node_modules/popper.js/dist/umd/popper.js",
+        "../../../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -59,6 +59,21 @@
         "prod": "environments/environment.prod.ts"
       },
       "tags": []
+    },
+    {
+      "name": "common/ui",
+      "root": "libs/common/ui/src",
+      "test": "../../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
+      "name": "customer-portal/ui",
+      "root": "libs/customer-portal/ui/src",
+      "test": "../../../../test.js",
+      "appRoot": "",
+      "tags": [],
+      "prefix": "ddc"
     },
     {
       "name": "$workspaceRoot",
