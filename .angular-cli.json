@@ -76,6 +76,13 @@
       "prefix": "ddc"
     },
     {
+      "name": "scheduler",
+      "root": "libs/scheduler/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "$workspaceRoot",
       "root": ".",
       "appRoot": ""
