@@ -3,11 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UiModule as CommonUiModule } from "@ddc/common/ui";
+import { ShellComponent } from './shell/shell.component';
 
 export const uiRoutes: Route[] = [
   {
     path: '',
-    component: HomeComponent
+    component: ShellComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      }
+    ]
   }
 ];
 
@@ -17,6 +24,6 @@ export const uiRoutes: Route[] = [
     RouterModule,
     CommonUiModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, ShellComponent]
 })
 export class UiModule {}
