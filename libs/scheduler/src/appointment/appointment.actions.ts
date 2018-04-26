@@ -13,32 +13,32 @@ export enum AppointmentActionTypes {
 
 export class AppointmentAdd implements Action {
   readonly type = AppointmentActionTypes.AppointmentAdd;
-  constructor(private payload: Appointment){    
+  constructor(public payload: Appointment){    
   }
 }
 export class AppointmentAddSuccess implements Action {
   readonly type = AppointmentActionTypes.AppointmentAddSuccess;
-  constructor(private payload: Appointment){
+  constructor(public payload: Appointment){
   }
 }
 export class AppointmentAddFail implements Action {
   readonly type = AppointmentActionTypes.AppointmentAddFail;
-  constructor(private payload: Appointment){
+  constructor(public payload: Appointment){
   }
 }
 export class AppointmentUpdate implements Action {
   readonly type = AppointmentActionTypes.AppointmentUpdate;
-  constructor(private payload: Appointment){    
+  constructor(public payload: Appointment){    
   }
 }
 export class AppointmentUpdateSuccess implements Action {
   readonly type = AppointmentActionTypes.AppointmentUpdateSuccess;
-  constructor(private payload: Appointment){
+  constructor(public payload: Appointment){
   }
 }
 export class AppointmentUpdateFail implements Action {
   readonly type = AppointmentActionTypes.AppointmentUpdateFail;
-  constructor(private payload: Appointment){
+  constructor(public payload: Appointment){
   }
 }
 
