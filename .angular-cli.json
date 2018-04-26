@@ -61,6 +61,13 @@
       "tags": []
     },
     {
+      "name": "common/ui",
+      "root": "libs/common/ui/src",
+      "test": "../../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "customer-portal/ui",
       "root": "libs/customer-portal/ui/src",
       "test": "../../../../test.js",
