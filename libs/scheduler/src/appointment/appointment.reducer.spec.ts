@@ -73,13 +73,13 @@ describe('Appointment Reducer', () => {
 
       const result = reducer(getTestAppointmentState(), action);
 
-      // The test fails without {...a} because updateOne function on EntityAdapter returns Object instead of Appointment
+      // The test fails without Object.assign(new Object(), a) because updateOne function on EntityAdapter returns Object instead of Appointment
       // Refer here - https://github.com/jasmine/jasmine/issues/598
       expect(result).toEqual(<State>{
         ids: ['1'],
         loading: false,
         entities: {
-          '1': {...a}
+          '1': Object.assign(new Object(), a)
         }
       });
     });

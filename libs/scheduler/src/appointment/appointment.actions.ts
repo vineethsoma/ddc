@@ -18,7 +18,7 @@ export class AppointmentAdd implements Action {
 }
 export class AppointmentAddSuccess implements Action {
   readonly type = AppointmentActionTypes.AppointmentAddSuccess;
-  constructor(public payload: Appointment){
+  constructor(public payload: any){
   }
 }
 export class AppointmentAddFail implements Action {
