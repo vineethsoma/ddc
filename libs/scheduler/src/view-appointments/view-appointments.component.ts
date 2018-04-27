@@ -4,8 +4,6 @@ import * as fromStore from '../+state/scheduler.reducer';
 import { Appointment } from '@ddc/scheduler/src/appointment/appointment';
 import { Observable } from 'rxjs/Observable';
 import { AppointmentAdd, AppointmentUpdate } from '@ddc/scheduler/src/appointment/appointment.actions';
-import { TimeSlotsOptions } from '@ddc/scheduler/src/time-slots/time-slots.component';
-import { TimeSlot } from '@ddc/scheduler/src/time-slot/time-slot.component';
 
 @Component({
   selector: 'app-view-appointments',
