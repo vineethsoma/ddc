@@ -2,10 +2,16 @@ import { reducer, initialState, State } from './appointment.reducer';
 import { Appointment } from './appointment';
 
 import * as Moment from 'moment';
-import { AppointmentAddSuccess, AppointmentAdd, AppointmentAddFail, AppointmentUpdate, AppointmentUpdateSuccess, AppointmentUpdateFail } from './appointment.actions';
+import {
+  AppointmentAddSuccess,
+  AppointmentAdd,
+  AppointmentAddFail,
+  AppointmentUpdate,
+  AppointmentUpdateSuccess,
+  AppointmentUpdateFail
+} from './appointment.actions';
 
 describe('Appointment Reducer', () => {
-
   describe('unknown action', () => {
     it('should return the initial state', () => {
       const action = {} as any;
@@ -27,7 +33,7 @@ describe('Appointment Reducer', () => {
   });
 
   describe('AddSuccess action', () => {
-    const a = getTestAppointment(); 
+    const a = getTestAppointment();
     it('should return new state with appointment', () => {
       const action = new AppointmentAddSuccess(a);
 
@@ -44,7 +50,7 @@ describe('Appointment Reducer', () => {
   });
 
   describe('Add Fail action', () => {
-    const a = getTestAppointment(); 
+    const a = getTestAppointment();
     it('should return new state with appointment', () => {
       const action = new AppointmentAddFail(a);
 
@@ -67,7 +73,7 @@ describe('Appointment Reducer', () => {
   describe('UpdateSuccess action', () => {
     const a = getTestAppointment();
 
-    a.name = 'Test User 2'
+    a.name = 'Test User 2';
     it('should return new state with appointment change', () => {
       const action = new AppointmentUpdateSuccess(a);
 
@@ -86,7 +92,7 @@ describe('Appointment Reducer', () => {
   });
 
   describe('Update Fail action', () => {
-    const a = getTestAppointment(); 
+    const a = getTestAppointment();
     it('should return new state with appointment', () => {
       const action = new AppointmentUpdateFail(a);
 
@@ -95,8 +101,6 @@ describe('Appointment Reducer', () => {
       expect(result).toBe(initialState);
     });
   });
-
-
 });
 
 function getDateMinutesAgo(mins: number) {
@@ -114,17 +118,17 @@ function getTestAppointment() {
   a.startTime = new Date(getDateMinutesAgo(60));
   a.endTime = new Date(getDateMinutesAgo(30));
 
-  return a; 
+  return a;
 }
 
 function getTestAppointmentState() {
-  const a = getTestAppointment(); 
+  const a = getTestAppointment();
 
   return <State>{
-      ids: [ a.id ],
-      entities: {
-        [a.id]: a
-      },
-      loading: true
-  }; 
+    ids: [a.id],
+    entities: {
+      [a.id]: a
+    },
+    loading: true
+  };
 }

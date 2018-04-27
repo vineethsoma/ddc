@@ -10,9 +10,9 @@ import { uiRoutes, UiModule } from '@ddc/customer-portal/ui';
     BrowserModule,
     NxModule.forRoot(),
     UiModule,
-    RouterModule.forRoot([
-      {path: '', children: uiRoutes}
-    ], { initialNavigation: 'enabled' })
+    RouterModule.forRoot([{ path: '', children: uiRoutes }], {
+      initialNavigation: 'enabled'
+    })
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

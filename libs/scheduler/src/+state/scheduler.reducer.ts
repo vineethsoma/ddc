@@ -28,9 +28,11 @@ export interface SchedulerState {
 
 export const reducers = {
   appointments: fromAppointments.reducer
-}
+};
 
-export const getSchedulerState = createFeatureSelector<SchedulerData>('scheduler');
+export const getSchedulerState = createFeatureSelector<SchedulerData>(
+  'scheduler'
+);
 
 export const getAppointmentEntitiesState = createSelector(
   getSchedulerState,
@@ -41,6 +43,5 @@ export const {
   selectIds: getAppointmentIds,
   selectEntities: getAppointmentEntities,
   selectAll: getAllAppointments,
-  selectTotal: getTotalAppointments,
+  selectTotal: getTotalAppointments
 } = fromAppointments.adapter.getSelectors(getAppointmentEntitiesState);
-

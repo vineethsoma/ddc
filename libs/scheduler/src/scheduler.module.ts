@@ -6,7 +6,11 @@ import { reducers as schedulerReducer } from './+state/scheduler.reducer';
 import { SchedulerEffects } from './+state/scheduler.effects';
 
 @NgModule({
-  imports: [CommonModule, StoreModule.forFeature('scheduler', schedulerReducer), EffectsModule.forFeature([SchedulerEffects])],
+  imports: [
+    CommonModule,
+    StoreModule.forFeature('scheduler', schedulerReducer),
+    EffectsModule.forFeature([SchedulerEffects])
+  ],
   providers: [SchedulerEffects]
 })
 export class SchedulerModule {}

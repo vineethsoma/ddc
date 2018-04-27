@@ -10,10 +10,7 @@ describe('AppointmentService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        AppointmentEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [AppointmentEffects, provideMockActions(() => actions$)]
     });
 
     effects = TestBed.get(AppointmentEffects);
@@ -23,8 +20,7 @@ describe('AppointmentService', () => {
     expect(effects).toBeTruthy();
   });
 
-  // TODO Add unit test for Add 
-  
-  // TODO Add unit test for Update 
+  // TODO Add unit test for Add
 
+  // TODO Add unit test for Update
 });

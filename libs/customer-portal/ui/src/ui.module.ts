@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { UiModule as CommonUiModule } from "@ddc/common/ui";
+import { UiModule as CommonUiModule } from '@ddc/common/ui';
 import { ShellComponent } from './shell/shell.component';
 
 export const uiRoutes: Route[] = [
@@ -19,11 +19,7 @@ export const uiRoutes: Route[] = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    CommonUiModule
-  ],
+  imports: [CommonModule, RouterModule, CommonUiModule],
   declarations: [HomeComponent, ShellComponent]
 })
 export class UiModule {}

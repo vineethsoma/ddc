@@ -6,12 +6,13 @@ describe('MenuButtonComponent', () => {
   let component: MenuButtonComponent;
   let fixture: ComponentFixture<MenuButtonComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MenuButtonComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [MenuButtonComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuButtonComponent);

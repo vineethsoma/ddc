@@ -13,9 +13,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MenuButtonComponent implements OnInit {
   @Input() icon: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

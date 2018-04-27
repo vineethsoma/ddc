@@ -1,16 +1,21 @@
 import { Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { AppointmentActions, AppointmentActionTypes } from './appointment.actions';
+import {
+  AppointmentActions,
+  AppointmentActionTypes
+} from './appointment.actions';
 import { Appointment } from './appointment';
 
-export interface State extends EntityState<Appointment>{
+export interface State extends EntityState<Appointment> {
   loading: boolean;
   ids: any[];
 }
 
-export const adapter: EntityAdapter<Appointment> = createEntityAdapter<Appointment>({
+export const adapter: EntityAdapter<Appointment> = createEntityAdapter<
+  Appointment
+>({
   selectId: (appointment: Appointment) => appointment.id,
-  sortComparer: false,
+  sortComparer: false
 });
 
 export const initialState: State = adapter.getInitialState<State>({
@@ -19,11 +24,12 @@ export const initialState: State = adapter.getInitialState<State>({
   entities: {}
 });
 
-export const reducer = (state = initialState, action: AppointmentActions): State => {
+export const reducer = (
+  state = initialState,
+  action: AppointmentActions
+): State => {
   switch (action.type) {
-
     case AppointmentActionTypes.AppointmentAddSuccess: {
-      
       return {
         ...state,
         ...adapter.addOne(action.payload, state),
@@ -32,12 +38,12 @@ export const reducer = (state = initialState, action: AppointmentActions): State
     }
 
     case AppointmentActionTypes.AppointmentUpdateSuccess: {
-      const { payload: changes} = action; 
-      const { id } = changes; 
-      
+      const { payload: changes } = action;
+      const { id } = changes;
+
       return {
         ...state,
-        ...adapter.updateOne({id: id, changes: changes}, state),
+        ...adapter.updateOne({ id: id, changes: changes }, state),
         loading: false
       };
     }
@@ -46,4 +52,4 @@ export const reducer = (state = initialState, action: AppointmentActions): State
     default:
       return state;
   }
-}
+};
