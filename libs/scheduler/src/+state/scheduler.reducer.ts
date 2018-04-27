@@ -1,12 +1,16 @@
-import { Action } from '@ngrx/store';
+import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
 import { SchedulerActions, SchedulerActionTypes } from './scheduler.actions';
+
+import * as fromAppointments from '../appointment/appointment.reducer';
 
 /**
  * Interface for the 'Scheduler' data used in
  *  - SchedulerState, and
  *  - schedulerReducer
  */
-export interface SchedulerData {}
+export interface SchedulerData {
+  appointments: fromAppointments.State;
+}
 
 /**
  * Interface to the part of the Store containing SchedulerState
@@ -16,21 +20,27 @@ export interface SchedulerState {
   readonly scheduler: SchedulerData;
 }
 
-export const initialState: SchedulerData = {};
+// export const initialState: SchedulerState = {
+//   scheduler: {
+//     appointments: fromAppointments.initialState
+//   }
+// };
 
-export function schedulerReducer(
-  state = initialState,
-  action: SchedulerActions
-): SchedulerData {
-  switch (action.type) {
-    case SchedulerActionTypes.SchedulerAction:
-      return state;
-
-    case SchedulerActionTypes.SchedulerLoaded: {
-      return { ...state, ...action.payload };
-    }
-
-    default:
-      return state;
-  }
+export const reducers = {
+  appointments: fromAppointments.reducer
 }
+
+export const getSchedulerState = createFeatureSelector<SchedulerData>('scheduler');
+
+export const getAppointmentEntitiesState = createSelector(
+  getSchedulerState,
+  state => state.appointments
+);
+
+export const {
+  selectIds: getAppointmentIds,
+  selectEntities: getAppointmentEntities,
+  selectAll: getAllAppointments,
+  selectTotal: getTotalAppointments,
+} = fromAppointments.adapter.getSelectors(getAppointmentEntitiesState);
+
