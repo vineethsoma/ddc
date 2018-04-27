@@ -5,7 +5,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers as schedulerReducer } from './+state/scheduler.reducer';
 import { SchedulerEffects } from './+state/scheduler.effects';
 import { ScheduleModule } from "primeng/schedule";
-import { SchedulerRoutingModule } from '@ddc/scheduler/src/scheduler-routing.module';
+import { SchedulerRoutingModule } from './scheduler-routing.module';
+import { ViewAppointmentsComponent } from './view-appointments/view-appointments.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SchedulerRoutingModule } from '@ddc/scheduler/src/scheduler-routing.mod
     EffectsModule.forFeature([SchedulerEffects]),
     ScheduleModule
   ],
-  providers: [SchedulerEffects]
+  providers: [SchedulerEffects],
+  declarations: [ViewAppointmentsComponent]
 })
 export class SchedulerModule {}

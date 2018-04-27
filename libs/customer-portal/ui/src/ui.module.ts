@@ -13,6 +13,11 @@ export const uiRoutes: Route[] = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'scheduler',
+        // Add the lazy loaded module to the app's tsconfig.app.json. For example look at customer-portal/tsconfig.app.json
+        loadChildren: '@ddc/scheduler#SchedulerModule'
       }
     ]
   }
