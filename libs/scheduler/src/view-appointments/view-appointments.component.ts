@@ -42,24 +42,17 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.appointments$ = this.store.select(fromStore.getAllAppointments);
     this.events$ = this.appointments$.pipe(
-      map(list => list.map(this.createEvent)),
-      tap(events => console.log('Events$', events))
+      map(list => list.map(this.createEvent))
     );
-
-    this.appointments$.subscribe(() => {
-      console.log('Events', this.schedule.events);
-    });
   }
 
   get currentDate$() {
-    return this._currentDate.asObservable().pipe(
-      share()
-    );
+    return this._currentDate.asObservable().pipe(share());
   }
 
   get isToday$() {
     return this.currentDate$.pipe(
-      map(date => Moment(date).isSame(new Date(),'day'))
+      map(date => Moment(date).isSame(new Date(), 'day'))
     );
   }
 
@@ -69,11 +62,10 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
 
   selectTimeSlot(event: any) {
     const a = new Appointment();
-    console.log(event);
     const { date: startMoment } = event;
-    const endMoment = (startMoment).clone().add(1, 'hour');
-    a.startTime = (startMoment).toDate();
-    a.endTime = (endMoment).toDate();
+    const endMoment = startMoment.clone().add(1, 'hour');
+    a.startTime = startMoment.toDate();
+    a.endTime = endMoment.toDate();
 
     const dialogRef = this.dialog.open(ManageAppointmentDialogComponent, {
       data: {
@@ -82,7 +74,6 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       this.saveAppointment(result);
     });
   }
@@ -95,7 +86,6 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       this.saveAppointment(result);
     });
   }
@@ -126,7 +116,6 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   }
 
   private addAppointment(a: Appointment) {
-    console.log('Adding appointment');
     this.store.dispatch(new AppointmentAdd(a));
   }
 
@@ -143,7 +132,7 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
     this.updateCurrentDate();
   }
   updateCurrentDate() {
-    this._currentDate.next((this.schedule.getDate()).toDate());
+    this._currentDate.next(this.schedule.getDate().toDate());
   }
 }
 

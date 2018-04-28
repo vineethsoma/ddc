@@ -29,10 +29,13 @@ class AppointmentFormGroup extends FormGroup {
 
     const control = this.controls['phone'];
 
-    control.valueChanges.pipe(
+    control.valueChanges
+      .pipe
       // debounceTime(100)
-    )
-    .subscribe((change) => control.setValue(phoneMask(change), {emitEvent: false}));
+      ()
+      .subscribe(change =>
+        control.setValue(phoneMask(change), { emitEvent: false })
+      );
 
     this.appointment = a;
   }
@@ -50,4 +53,4 @@ class AppointmentFormGroup extends FormGroup {
 const phoneMask = (value: string) => {
   const x = value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
   return !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-}
+};
