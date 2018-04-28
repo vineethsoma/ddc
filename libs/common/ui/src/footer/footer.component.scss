@@ -1,8 +1,10 @@
 @import '~@angular/material/theming';
 .footer {
     @include mat-elevation(10);
-    position: fixed;
+    position: static;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     z-index: 10;
     padding: 35px 0px;

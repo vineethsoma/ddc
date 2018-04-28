@@ -12,7 +12,8 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatDialogModule,
-  MatInputModule
+  MatInputModule,
+  MatTooltipModule
 } from '@angular/material';
 import { ManageAppointmentFormComponent } from './manage-appointment-form/manage-appointment-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +33,8 @@ import { AppointmentEffects } from '@ddc/scheduler/src/appointment/appointment.e
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [SchedulerEffects],
   declarations: [

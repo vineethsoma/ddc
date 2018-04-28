@@ -32,6 +32,7 @@ import { map, tap, share } from 'rxjs/operators';
 export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   @ViewChild('scheduler') schedule: Schedule;
   private _currentDate: BehaviorSubject<Date> = new BehaviorSubject(new Date());
+  today = new Date();
   appointments$: Observable<Appointment[]>;
   events$: Observable<IEvent[]>;
   constructor(
@@ -52,8 +53,12 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
 
   get isToday$() {
     return this.currentDate$.pipe(
-      map(date => Moment(date).isSame(new Date(), 'day'))
+      map(date => Moment(date).isSame(this.today, 'day'))
     );
+  }
+
+  goToToday(){
+    this.schedule.gotoDate(new Date());
   }
 
   ngAfterViewInit() {
