@@ -35,7 +35,11 @@ import { AppointmentEffects } from '@ddc/scheduler/src/appointment/appointment.e
     MatInputModule
   ],
   providers: [SchedulerEffects],
-  declarations: [ViewAppointmentsComponent, ManageAppointmentFormComponent, ManageAppointmentDialogComponent],
+  declarations: [
+    ViewAppointmentsComponent,
+    ManageAppointmentFormComponent,
+    ManageAppointmentDialogComponent
+  ],
   entryComponents: [ManageAppointmentDialogComponent]
 })
 export class SchedulerModule {}

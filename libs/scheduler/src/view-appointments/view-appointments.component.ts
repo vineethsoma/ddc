@@ -16,11 +16,12 @@ import {
 } from '@ddc/scheduler/src/appointment/appointment.actions';
 import { Schedule } from 'primeng/schedule';
 
-import { Moment } from 'moment';
+import * as Moment from 'moment';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { MatDialog } from '@angular/material';
 import { ManageAppointmentDialogComponent } from '@ddc/scheduler/src/manage-appointment-dialog/manage-appointment-dialog.component';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, share } from 'rxjs/operators';
+
 @Component({
   selector: 'app-view-appointments',
   templateUrl: './view-appointments.component.html',
@@ -33,23 +34,33 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   private _currentDate: BehaviorSubject<Date> = new BehaviorSubject(new Date());
   appointments$: Observable<Appointment[]>;
   events$: Observable<IEvent[]>;
-  constructor(private store: Store<fromStore.SchedulerState>, public dialog: MatDialog) {}
+  constructor(
+    private store: Store<fromStore.SchedulerState>,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.appointments$ = this.store.select(fromStore.getAllAppointments);
     this.events$ = this.appointments$.pipe(
-      map((list) => list.map(this.createEvent)),
-      tap((events) => console.log('Events$', events))
+      map(list => list.map(this.createEvent)),
+      tap(events => console.log('Events$', events))
     );
 
     this.appointments$.subscribe(() => {
-
       console.log('Events', this.schedule.events);
     });
   }
 
   get currentDate$() {
-    return this._currentDate.asObservable();
+    return this._currentDate.asObservable().pipe(
+      share()
+    );
+  }
+
+  get isToday$() {
+    return this.currentDate$.pipe(
+      map(date => Moment(date).isSame(new Date(),'day'))
+    );
   }
 
   ngAfterViewInit() {
@@ -59,10 +70,10 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   selectTimeSlot(event: any) {
     const a = new Appointment();
     console.log(event);
-    const {date: startMoment} = event;
-    const endMoment = (startMoment as Moment).clone().add(1,'hour');
-    a.startTime = (startMoment as Moment).toDate();
-    a.endTime = (endMoment as Moment).toDate();
+    const { date: startMoment } = event;
+    const endMoment = (startMoment).clone().add(1, 'hour');
+    a.startTime = (startMoment).toDate();
+    a.endTime = (endMoment).toDate();
 
     const dialogRef = this.dialog.open(ManageAppointmentDialogComponent, {
       data: {
@@ -90,15 +101,14 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   }
 
   saveAppointment(result) {
-    if(result) {
+    if (result) {
       const _a: Appointment = result;
 
-      if(_a.id) {
+      if (_a.id) {
         this.updateAppointment(_a);
       } else {
         this.addAppointment(_a);
       }
-
     }
   }
 
@@ -108,11 +118,11 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
       start: a.startTime.toISOString(),
       title: `${a.name} | ${a.phone}`,
       end: a.endTime.toISOString(),
-      color: a.id? 'red': 'blue',
+      color: a.id ? 'red' : 'blue',
       appointment: a,
       textColor: 'white',
       className: 'appointment-event'
-    }
+    };
   }
 
   private addAppointment(a: Appointment) {
@@ -133,11 +143,11 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
     this.updateCurrentDate();
   }
   updateCurrentDate() {
-    this._currentDate.next((this.schedule.getDate() as Moment).toDate());
+    this._currentDate.next((this.schedule.getDate()).toDate());
   }
 }
 
-interface IEvent{
+interface IEvent {
   id: string;
   start: string;
   end: string;

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ManageAppointmentFormComponent } from './manage-appointment-form.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ManageAppointmentFormComponent', () => {
   let component: ManageAppointmentFormComponent;
@@ -9,7 +10,8 @@ describe('ManageAppointmentFormComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [ManageAppointmentFormComponent]
+        declarations: [ManageAppointmentFormComponent],
+        schemas: [NO_ERRORS_SCHEMA]
       }).compileComponents();
     })
   );

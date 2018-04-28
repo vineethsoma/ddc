@@ -3,11 +3,11 @@
     <div class="row d-flex w-100 m-0">
       <div class="col-md-6 text-left p-0 align-self-center">
           <!-- {{this.scheduler.getDate()}} -->
-          <span class="schedule-title">{{(this.currentDate$ | async) | date:'EEEE, MMMM d, y'}}</span>
+          <span class="schedule-title" [ngClass]="{'current': (this.isToday$ | async) }">{{(this.currentDate$ | async) | date:'MMMM d, y'}}</span>
       </div>
       <div class="col-md-6 text-right p-0">
-        <button mat-fab color="primary" (click)="this.previous()">P</button>
-        <button mat-fab color="primary" (click)="this.next()">N</button>
+        <button mat-fab color="primary" (click)="this.previous()"><i class="fas fa-chevron-left"></i></button>
+        <button mat-fab color="primary" (click)="this.next()"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </mat-card-title>

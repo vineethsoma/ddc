@@ -69,7 +69,6 @@ export class AppointmentEffects {
     })
   );
 
-
   // Act on Update Failure
   @Effect({ dispatch: false })
   updateFail$: Observable<void> = this.actions$.pipe(

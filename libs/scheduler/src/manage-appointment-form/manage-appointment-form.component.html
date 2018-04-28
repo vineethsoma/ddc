@@ -1,8 +1,9 @@
-<div [formGroup]="this.form">
+<div [formGroup]="this.form" class="d-flex flex-column p-1">
   <mat-form-field>
     <input matInput formControlName="name" [placeholder]="'Name'">
   </mat-form-field>
   <mat-form-field>
-    <input matInput formControlName="phone" [placeholder]="'Phone'">
+    <input matInput formControlName="phone" [placeholder]="'Phone'" [maxLength]="14">
+    <!-- <span matPrefix><i class="fas fa-phone"></i>&nbsp;</span> -->
   </mat-form-field>
 </div>

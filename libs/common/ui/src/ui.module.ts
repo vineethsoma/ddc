@@ -4,8 +4,9 @@ import { MenuButtonComponent } from './menu-button/menu-button.component';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
-  imports: [CommonModule, MatButtonModule, MatCardModule],
+  imports: [CommonModule, RouterModule, MatButtonModule, MatCardModule],
   exports: [MenuButtonComponent, HeaderComponent, FooterComponent],
   declarations: [MenuButtonComponent, HeaderComponent, FooterComponent]
 })

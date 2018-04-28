@@ -8,14 +8,12 @@ import { Appointment } from '@ddc/scheduler/src/appointment/appointment';
   styleUrls: ['./manage-appointment-dialog.component.scss']
 })
 export class ManageAppointmentDialogComponent implements OnInit {
-
   constructor(
     public dialogRef: MatDialogRef<ManageAppointmentDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   cancel() {
     this.dialogRef.close();
@@ -23,5 +21,4 @@ export class ManageAppointmentDialogComponent implements OnInit {
   save(a: Appointment) {
     this.dialogRef.close(a);
   }
-
 }
