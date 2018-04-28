@@ -1,5 +1,26 @@
-<p-schedule
-  [allDaySlot]="false"
-  [slotDuration]="60"
-  [defaultView]="'agendaDay'"
-></p-schedule>
+<mat-card>
+  <mat-card-title>
+    <div class="row d-flex w-100 m-0">
+      <div class="col-md-6 text-left p-0 align-self-center">
+          <!-- {{this.scheduler.getDate()}} -->
+          <span class="schedule-title">{{(this.currentDate$ | async) | date:'EEEE, MMMM d, y'}}</span>
+      </div>
+      <div class="col-md-6 text-right p-0">
+        <button mat-fab color="primary" (click)="this.previous()">P</button>
+        <button mat-fab color="primary" (click)="this.next()">N</button>
+      </div>
+    </div>
+  </mat-card-title>
+  <p-schedule
+    #scheduler
+    defaultView="agendaDay"
+    [allDaySlot]="false"
+    [header]="{left: '', right: '', center: ''}"
+    [slotDuration]="'00:60:00'"
+    [minTime]="'09:00:00'"
+    [maxTime]="'18:00:00'"
+    [height]="'100%'"
+    [contentHeight]="'23'"
+    [aspectRatio]="2.0"
+  ></p-schedule>
+</mat-card>

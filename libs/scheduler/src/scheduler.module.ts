@@ -7,6 +7,7 @@ import { SchedulerEffects } from './+state/scheduler.effects';
 import { ScheduleModule } from "primeng/schedule";
 import { SchedulerRoutingModule } from './scheduler-routing.module';
 import { ViewAppointmentsComponent } from './view-appointments/view-appointments.component';
+import { MatCardModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -14,7 +15,9 @@ import { ViewAppointmentsComponent } from './view-appointments/view-appointments
     SchedulerRoutingModule,
     StoreModule.forFeature('scheduler', schedulerReducer),
     EffectsModule.forFeature([SchedulerEffects]),
-    ScheduleModule
+    ScheduleModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [SchedulerEffects],
   declarations: [ViewAppointmentsComponent]

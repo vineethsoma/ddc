@@ -1,0 +1,80 @@
+@import '~@angular/material/theming';
+
+@mixin mat-schedule-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  // $background: map-get($theme, background);
+  // $foreground: map-get($theme, foreground);
+
+  .fc-time-grid .fc-slats .ui-widget-content {
+      background: white;
+      &:hover {
+        @include mat-elevation(10);
+        background: mat-color($primary, lighter);
+        cursor: pointer;
+      }
+  }
+}
+
+.fc-toolbar.fc-header-toolbar {
+  display: none;
+}
+
+.fc-time-grid-container, .fc-time-grid {
+   height: 490px!important;
+}
+
+.fc-time-grid .fc-slats td {
+  height: 3.4em;
+}
+td.fc-axis.fc-time.ui-widget-content{
+  // @include mat-elevation(10);
+}
+
+div.fc-row .ui-widget-header {
+  // @include mat-elevation(10);
+}
+div.fc-view-container {
+  // @include mat-elevation(10);
+}
+
+.fc-view {
+  >table {
+    >.fc-head{
+      display: none;
+      // @include mat-elevation(10);
+      > tr{
+        height: 60px;
+        > td{
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+.fc-slats {
+  > table {
+    > tbody {
+      > tr {
+        > td.fc-axis.fc-time.ui-widget-content{
+            @include mat-elevation(10);
+            border-width: 0px 1.0px;
+            font-size: 10px;
+            text-align: center;
+        }
+      }
+
+    }
+
+  }
+
+}
+.mat-card {
+  > .mat-card-title {
+     .schedule-title {
+      color: mat-color(mat-palette($mat-blue));
+    }
+  }
+}
