@@ -9,10 +9,10 @@ describe('ViewAppointmentsComponent', () => {
   let fixture: ComponentFixture<ViewAppointmentsComponent>;
   let store: Store<any>;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [ StoreModule.forRoot({}) ],
-      declarations: [ ViewAppointmentsComponent ],
+      imports: [StoreModule.forRoot({})],
+      declarations: [ViewAppointmentsComponent],
       schemas: [NO_ERRORS_SCHEMA]
     });
 
