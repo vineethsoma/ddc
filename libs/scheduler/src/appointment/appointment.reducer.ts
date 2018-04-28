@@ -30,6 +30,7 @@ export const reducer = (
 ): State => {
   switch (action.type) {
     case AppointmentActionTypes.AppointmentAddSuccess: {
+      console.log('Here');
       return {
         ...state,
         ...adapter.addOne(action.payload, state),

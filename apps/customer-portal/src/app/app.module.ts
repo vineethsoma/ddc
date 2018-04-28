@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { uiRoutes, UiModule } from '@ddc/customer-portal/ui';
@@ -13,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NxModule.forRoot(),
     UiModule,
     RouterModule.forRoot([{ path: '', children: uiRoutes }], {

@@ -11,10 +11,13 @@ import {
   MatCardModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatDialogModule
+  MatDialogModule,
+  MatInputModule
 } from '@angular/material';
 import { ManageAppointmentFormComponent } from './manage-appointment-form/manage-appointment-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManageAppointmentDialogComponent } from './manage-appointment-dialog/manage-appointment-dialog.component';
+import { AppointmentEffects } from '@ddc/scheduler/src/appointment/appointment.effects';
 
 @NgModule({
   imports: [
@@ -23,14 +26,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     SchedulerRoutingModule,
     StoreModule.forFeature('scheduler', schedulerReducer),
-    EffectsModule.forFeature([SchedulerEffects]),
+    EffectsModule.forFeature([SchedulerEffects, AppointmentEffects]),
     ScheduleModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [SchedulerEffects],
-  declarations: [ViewAppointmentsComponent, ManageAppointmentFormComponent]
+  declarations: [ViewAppointmentsComponent, ManageAppointmentFormComponent, ManageAppointmentDialogComponent],
+  entryComponents: [ManageAppointmentDialogComponent]
 })
 export class SchedulerModule {}

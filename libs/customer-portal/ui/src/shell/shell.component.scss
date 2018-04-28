@@ -1,9 +1,5 @@
 @import '~@angular/material/theming';
-.customer-portal-container{
-    margin: 100px 0px;
-    width: 100%;
-    padding: 0px 15px;
-}
+
 @mixin mat-shell-theme($theme){
   $primary: map-get($theme, primary);
   .header{
@@ -12,4 +8,10 @@
   .footer{
     background: mat-color($primary, darker);
   }
+}
+
+
+.customer-portal-container{
+  width: 100%;
+  padding: 70px 15px;
 }

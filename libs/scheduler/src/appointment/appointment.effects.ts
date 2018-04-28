@@ -18,12 +18,13 @@ import { Action } from '@ngrx/store';
 
 // TODO: Refactor to backend module
 const mockCreateAppointmentBackendCall = (a: Appointment, id) => {
-  return observableOf(a.createRequestDto());
+  console.log('Mock backend call');
+  return observableOf({ ...a.createRequestDto(), id: id });
 };
 
 @Injectable()
 export class AppointmentEffects {
-  private idCounter = 0;
+  private idCounter = 1;
 
   @Effect()
   addAppointment$: Observable<Action> = this.actions$.pipe(
@@ -33,10 +34,23 @@ export class AppointmentEffects {
     switchMap(a => {
       // Real backend call would happen here
       return mockCreateAppointmentBackendCall(a, this.idCounter++).pipe(
+        tap(response => console.log('Response from backend', response)),
         map(dto => new AppointmentAddSuccess(Appointment.from(dto))),
         // Add fails if there is an error in appointment creation, this can be used for logging.
         catchError(err => observableOf(new AppointmentAddFail(err)))
       );
+    })
+  );
+
+  // Act on Add Failure
+  @Effect({ dispatch: false })
+  addFail$: Observable<void> = this.actions$.pipe(
+    ofType<AppointmentAddFail>(AppointmentActionTypes.AppointmentAddFail),
+    tap(({ type }) => console.log(type)),
+    map(({ payload }) => payload),
+    map(err => {
+      // Good place to call a logger service
+      console.log(err);
     })
   );
 
@@ -52,6 +66,19 @@ export class AppointmentEffects {
         // Update fails if there is an error in appointment creation, this can be used for logging.
         catchError(err => observableOf(new AppointmentUpdateFail(err)))
       );
+    })
+  );
+
+
+  // Act on Update Failure
+  @Effect({ dispatch: false })
+  updateFail$: Observable<void> = this.actions$.pipe(
+    ofType<AppointmentUpdateFail>(AppointmentActionTypes.AppointmentUpdateFail),
+    tap(({ type }) => console.log(type)),
+    map(({ payload }) => payload),
+    map(err => {
+      // Good place to call a logger service
+      console.log(err);
     })
   );
 

@@ -16,11 +16,14 @@
     defaultView="agendaDay"
     [allDaySlot]="false"
     [header]="{left: '', right: '', center: ''}"
+    [slotEventOverlap]="false"
     [slotDuration]="'00:60:00'"
     [minTime]="'09:00:00'"
     [maxTime]="'18:00:00'"
-    [height]="'100%'"
-    [contentHeight]="'23'"
-    [aspectRatio]="2.0"
+    [height]="760"
+    [events]="this.events$ | async"
+    [timezone]="'local'"
+    (onDayClick)="this.selectTimeSlot($event)"
+    (onEventClick)="this.selectEvent($event)"
   ></p-schedule>
 </mat-card>

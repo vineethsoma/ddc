@@ -1,19 +1,50 @@
 @import '~@angular/material/theming';
 
+// Theme
 @mixin mat-schedule-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
   // $background: map-get($theme, background);
   // $foreground: map-get($theme, foreground);
-
+  .fc-event {
+    background: mat-color(mat-palette($mat-red), lighter);
+  }
   .fc-time-grid .fc-slats .ui-widget-content {
-      background: white;
-      &:hover {
-        @include mat-elevation(10);
-        background: mat-color($primary, lighter);
-        cursor: pointer;
+    background: white;
+    &:hover {
+      @include mat-elevation(10);
+      background: mat-color($primary, lighter);
+      cursor: pointer;
+    }
+  }
+  .mat-card {
+    > .mat-card-title {
+      .schedule-title {
+        color: mat-color(mat-palette($mat-blue));
       }
+    }
+  }
+
+
+.appointment-event{
+  background-color: mat-color($warn)!important;
+
+  .fc-bg {
+    display: none;
+  }
+}
+}
+
+// Styling
+.fc-event-container {
+  margin: 0 0 0 2px !important;
+}
+
+.fc-time-grid .fc-slats .ui-widget-content {
+  &:hover {
+    @include mat-elevation(10);
+    cursor: pointer;
   }
 }
 
@@ -21,33 +52,27 @@
   display: none;
 }
 
-.fc-time-grid-container, .fc-time-grid {
-   height: 490px!important;
+.fc-event {
+  @include mat-elevation(5);
+}
+
+.fc table{
+  height: 695px;
 }
 
 .fc-time-grid .fc-slats td {
-  height: 3.4em;
-}
-td.fc-axis.fc-time.ui-widget-content{
-  // @include mat-elevation(10);
-}
-
-div.fc-row .ui-widget-header {
-  // @include mat-elevation(10);
-}
-div.fc-view-container {
-  // @include mat-elevation(10);
+  // height: 3.4em;
 }
 
 .fc-view {
-  >table {
-    >.fc-head{
-      display: none;
+  > table {
+    > .fc-head {
+      // display: none;
       // @include mat-elevation(10);
-      > tr{
-        height: 60px;
-        > td{
-          vertical-align: middle;
+      > tr {
+        // height: 60px;
+        > td {
+          // vertical-align: middle;
         }
       }
     }
@@ -58,23 +83,16 @@ div.fc-view-container {
   > table {
     > tbody {
       > tr {
-        > td.fc-axis.fc-time.ui-widget-content{
-            @include mat-elevation(10);
-            border-width: 0px 1.0px;
-            font-size: 10px;
-            text-align: center;
+        > td.fc-axis.fc-time.ui-widget-content {
+          @include mat-elevation(10);
+          border-width: 0px 1px;
+          font-size: 10px;
+          text-align: center;
         }
       }
-
     }
-
   }
-
 }
-.mat-card {
-  > .mat-card-title {
-     .schedule-title {
-      color: mat-color(mat-palette($mat-blue));
-    }
-  }
+.appointment-event{
+
 }
