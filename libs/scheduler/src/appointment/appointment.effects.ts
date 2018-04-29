@@ -18,7 +18,6 @@ import { Action } from '@ngrx/store';
 
 // TODO: Refactor to backend module
 const mockCreateAppointmentBackendCall = (a: Appointment, id) => {
-  console.log('Mock backend call');
   return observableOf({ ...a.createRequestDto(), id: id });
 };
 
@@ -34,7 +33,6 @@ export class AppointmentEffects {
     switchMap(a => {
       // Real backend call would happen here
       return mockCreateAppointmentBackendCall(a, this.idCounter++).pipe(
-        tap(response => console.log('Response from backend', response)),
         map(dto => new AppointmentAddSuccess(Appointment.from(dto))),
         // Add fails if there is an error in appointment creation, this can be used for logging.
         catchError(err => observableOf(new AppointmentAddFail(err)))

@@ -37,7 +37,6 @@ export class Appointment {
       startTime: this.startTime.toISOString(),
       endTime: this.endTime.toISOString()
     };
-    console.log('Creating request object', dto);
     return dto;
   }
 }

@@ -21,6 +21,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { MatDialog } from '@angular/material';
 import { ManageAppointmentDialogComponent } from '@ddc/scheduler/src/manage-appointment-dialog/manage-appointment-dialog.component';
 import { map, tap, share } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-view-appointments',
@@ -63,6 +64,8 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.updateCurrentDate();
+    this.schedule.onDayClick.subscribe((_event) => this.selectTimeSlot(_event));
+    this.schedule.onEventClick.subscribe((_event) => this.selectEvent(_event));
   }
 
   selectTimeSlot(event: any) {
@@ -78,7 +81,7 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.beforeClose().subscribe(result => {
       this.saveAppointment(result);
     });
   }
@@ -90,7 +93,7 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.beforeClose().subscribe(result => {
       this.saveAppointment(result);
     });
   }

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ManageAppointmentDialogComponent } from './manage-appointment-dialog.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 describe('ManageAppointmentDialogComponent', () => {
   let component: ManageAppointmentDialogComponent;
@@ -11,7 +12,11 @@ describe('ManageAppointmentDialogComponent', () => {
     async(() => {
       TestBed.configureTestingModule({
         declarations: [ManageAppointmentDialogComponent],
-        schemas: [NO_ERRORS_SCHEMA]
+        schemas: [NO_ERRORS_SCHEMA],
+        providers: [
+          {provide: MatDialogRef, value: {}},
+          {provide: MAT_DIALOG_DATA, value: {}}
+        ]
       }).compileComponents();
     })
   );
