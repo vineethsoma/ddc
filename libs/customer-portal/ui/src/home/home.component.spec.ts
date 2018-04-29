@@ -11,7 +11,7 @@ describe('HomeComponent', () => {
     async(() => {
       TestBed.configureTestingModule({
         declarations: [HomeComponent],
-        schemas: [ NO_ERRORS_SCHEMA ],
+        schemas: [NO_ERRORS_SCHEMA]
       }).compileComponents();
     })
   );

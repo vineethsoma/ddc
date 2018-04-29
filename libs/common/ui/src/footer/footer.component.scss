@@ -1,5 +1,12 @@
+@import '~@angular/material/theming';
 .footer {
-    position: absolute;
+    @include mat-elevation(10);
+    position: static;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    z-index: 10;
+    padding: 35px 0px;
+    // height: 75px;
 }

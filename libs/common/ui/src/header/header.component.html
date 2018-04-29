@@ -1,3 +1,18 @@
 <div class="header">
-    <mat-card></mat-card>
+  <button mat-button class="text-white" [routerLink]="['/']">
+    <i class="fas fa-home"></i>
+    <span>
+      Home
+    </span>
+  </button>
+  <button mat-button class="text-white" [routerLink]="['/scheduler']">
+    <i class="far fa-calendar-alt"></i>
+    <span>
+      Scheduler
+    </span>
+  </button>
+  <div class="flex-grow-1"></div>
+  <a mat-fab-button class="text-white" href="https://github.com/vineethsoma/ddc">
+    <i class="fab fa-github fa-2x"></i>
+  </a>
 </div>

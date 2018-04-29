@@ -1,0 +1,88 @@
+@import '~@angular/material/theming';
+
+// Theme
+@mixin mat-schedule-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-card {
+    > .mat-card-title {
+      .schedule-title {
+
+        &.current{
+          color: mat-color(mat-palette($mat-blue));
+        }
+      }
+    }
+  }
+
+  .fc-time-grid .fc-slats .ui-widget-content {
+    background: white !important;
+    &:hover {
+      background: mat-color($primary, lighter);
+    }
+  }
+
+  .appointment-event {
+    background-color: mat-color($warn) !important;
+
+    .fc-bg {
+      display: none;
+    }
+  }
+}
+
+// Styling
+.fc-event-container {
+  margin: 0 0 0 2px !important;
+}
+
+.fc-time-grid .fc-slats .ui-widget-content {
+  &:hover {
+    // @include mat-elevation(10);
+    cursor: pointer;
+  }
+}
+
+.fc-toolbar.fc-header-toolbar {
+  display: none;
+}
+
+.fc-event {
+  @include mat-elevation(5);
+}
+
+.fc table {
+  height: 693px;
+}
+
+.fc-slats {
+  > table {
+    > tbody {
+      > tr {
+        > td.fc-axis.fc-time.ui-widget-content {
+          @include mat-elevation(10);
+          border-width: 0px 1px;
+          font-size: 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.fc td{
+  cursor: pointer;
+}
+
+.appointment-event {
+  left: -5px !important;
+  right: -5px !important;
+}
+
+.fc-event{
+  font-size: 1.0em;
+}
+.fc-time-grid-event{
+  font-size: 1.0em;
+}
