@@ -33,7 +33,7 @@
     {
       "name": "customer-portal",
       "root": "apps/customer-portal/src",
-      "outDir": "dist/apps/customer-portal",
+      "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico"
