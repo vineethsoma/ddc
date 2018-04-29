@@ -24,7 +24,15 @@
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "postinstall": "./node_modules/.bin/nx postinstall",
     "help": "./node_modules/.bin/nx help",
-    "customer-portal": "ng serve -a customer-portal -p 4200"
+    "customer-portal": "ng serve -a customer-portal -p 4200",
+    "clear-web-container": "docker stop web && docker rm web",
+    "clear-web-image": "docker rmi ddc_web",
+    "clear-docker": "npm run clear-web-container && npm run clear-web-image",
+    "build-prod": "ng build --prod --app=customer-portal && gzip -r dist/*.js",
+    "build-prod-no-gzip": "ng build --prod --app=customer-portal",
+    "serve-prod": "npm run build-prod && docker-compose up",
+    "serve-dist-http": "./node_modules/.bin/http-server -c-1 -o -p 8080 ./dist",
+    "serve-prod-http": "npm run build-prod-no-gzip && npm run serve-dist-http"
   },
   "private": true,
   "dependencies": {

@@ -24,13 +24,12 @@ export const initialState: State = adapter.getInitialState<State>({
   entities: {}
 });
 
-export const reducer = (
+export function reducer(
   state = initialState,
   action: AppointmentActions
-): State => {
+): State {
   switch (action.type) {
     case AppointmentActionTypes.AppointmentAddSuccess: {
-      console.log('Here');
       return {
         ...state,
         ...adapter.addOne(action.payload, state),

@@ -1,0 +1,18 @@
+version: "3"
+
+networks:
+  corp:
+    driver: bridge
+
+services:
+  web:
+    container_name: web
+    networks:
+      - corp
+    build: .
+    volumes:
+      - ./dist:/usr/share/nginx/html/dist
+      - ./dist:/var/www/html/dist
+      - ./nginx:/etc/nginx
+    ports:
+      - "80:80"
