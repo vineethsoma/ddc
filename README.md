@@ -13,7 +13,7 @@ To run the production build using docker -
 Run `npm run serve-prod` and navigate to http://localhost
 #### With Http Server
 
-To run the production build using docker - 
+To run the production build using [http-server](https://github.com/indexzero/http-server) - 
 Run `npm run serve-prod-http` and the application opens in the browser at http://localhost:8080
 
 ### Development server
