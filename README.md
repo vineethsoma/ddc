@@ -61,12 +61,12 @@ Some of its key features:
 The project is setup with Ngrx for global state management. 
 
 [NgRx](https://github.com/ngrx/platform) is a Flux implementation for Angular 2. It contains the following packages: 
-@ngrx/store - RxJS powered state management for Angular applications, inspired by Redux
-@ngrx/effects - Side Effect model for @ngrx/store to model event sources as actions.
-@ngrx/router-store - Bindings to connect the Angular Router to @ngrx/store
-@ngrx/store-devtools - Store instrumentation that enables a powerful time-travelling debugger.
-@ngrx/entity - Entity State adapter for managing record collections.
-@ngrx/schematics - Scaffolding library for Angular applications using NgRx.
+- @ngrx/store - RxJS powered state management for Angular applications, inspired by Redux
+- @ngrx/effects - Side Effect model for @ngrx/store to model event sources as actions.
+- @ngrx/router-store - Bindings to connect the Angular Router to @ngrx/store
+- @ngrx/store-devtools - Store instrumentation that enables a powerful time-travelling debugger.
+- @ngrx/entity - Entity State adapter for managing record collections.
+- @ngrx/schematics - Scaffolding library for Angular applications using NgRx.
 
 ### Testing
 
