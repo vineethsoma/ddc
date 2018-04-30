@@ -18,7 +18,8 @@ import { EffectsModule } from '@ngrx/effects';
     NxModule.forRoot(),
     UiModule,
     RouterModule.forRoot([{ path: '', children: uiRoutes }], {
-      initialNavigation: 'enabled'
+      initialNavigation: 'enabled',
+      useHash: true
     }),
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
