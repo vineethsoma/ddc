@@ -32,7 +32,7 @@ Before running the tests make sure you are serving the app via `npm run customer
 
 ## Features of the project
 
-###Project structure
+### Project structure
 Working on multiple applications and libraries can become challenging to organize. If the project are not organized properly it may lead to less reusability of code between applications, especially is there a lot of the similiar features between the applications. But reusability would also mean need to keep the dependencies consistent accross all the applications so breaking changes are not introduced on an update. 
 
 To solve this [Nrwl](https://nrwl.io) came up with what's called a "workspace" which is a monon repo where all all the applications and libraries a group of teams are working on will be available under one repo or workspace. 
