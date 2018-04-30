@@ -3,9 +3,11 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'ddc-menu-button',
   template: `
-    <button mat-raised-button >
+    <button mat-raised-button class="menu-button">
       <i [class]=icon></i>
-      <ng-content></ng-content>
+      <div class="menu-content">
+        <ng-content></ng-content>
+      </div>
     </button>
   `,
   styleUrls: ['./menu-button.component.scss']
@@ -15,5 +17,7 @@ export class MenuButtonComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.icon = `${this.icon} fa-3x`;
+  }
 }
