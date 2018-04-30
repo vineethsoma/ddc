@@ -25,16 +25,16 @@ before_script:
 - npm install
 - ng build
 script: ng test --single-run
-# deploy:
-#   provider: codedeploy
-#   wait-until-deployed: true
-#   access_key_id: AKIAJ2UBJWQDHJ7D42JA
-#   secret_access_key:
-#     secure: Ls4JTeEREM2NWidmlPVvk4Omlvyriuc3H6ixCEujQXhSX7Db0IRyYGYJJ5JorhJ0aQ1aj6sb069BersNJrcpg0ejy/AEuDBk83Zy9DPUgnBhwdOKIOzInXbb9wBAwew1lU4ozJZL2IkJ7P3i98hUCxbkaeZuBTKSIIzvsD7doHpdjqvgduZAovN31L32pjGHNCfD9Aq2C7mzbZHjsOh8+TBWrPvbj3fa2Bn1S91Zy+GKJOcJJlyC++xZabI0yFn1vw+qTa44YKjJpJepNFUWRlzTBwj4vnHFUlmk4EyWOrkUCawklTIeNpYIxK5vwHfGmzX89g7XeqAJGk2aLgL9ul64mWzn2AtTOL6tRDMpCyUNGJmEVGzMfLaoz3CkP2bCP9QMhHs5Im3N4cv3edw9T3/tMZlnhmtBH3EaQER6YUOD7/qnPTdDbTutyqmLNYarFMcu0eaWDVWunxTBkteVEeWe0n7Lp+Ld7D/KX8EXoZnbO97nSu5BlQqRRvtkqZRN9wPZNg0Baaac69L0lY+zA+hk5xMtchwrCG0bmmEwHX21pRelbHrd9jed3ODloyYxDRYEnBMM6EHuD+fjJeOT42Hjo3G9jY3pgpwRp67cvdwRDm5xpAqQv9yeHjwYrlIGWGfrslXChlPZWbUW3vNtj3LCaqmPCw9sjOs3fc/wN1M=
-#   bucket: ''
-#   key: ''
-#   bundle_type: ''
-#   application: ddcCustomerPortal
-#   deployment_group: 'ddcGroup'
-#   on:
-#     all_branches: true
+deploy:
+  provider: codedeploy
+  wait-until-deployed: true
+  access_key_id: AKIAJ2UBJWQDHJ7D42JA
+  secret_access_key:
+    secure: Ls4JTeEREM2NWidmlPVvk4Omlvyriuc3H6ixCEujQXhSX7Db0IRyYGYJJ5JorhJ0aQ1aj6sb069BersNJrcpg0ejy/AEuDBk83Zy9DPUgnBhwdOKIOzInXbb9wBAwew1lU4ozJZL2IkJ7P3i98hUCxbkaeZuBTKSIIzvsD7doHpdjqvgduZAovN31L32pjGHNCfD9Aq2C7mzbZHjsOh8+TBWrPvbj3fa2Bn1S91Zy+GKJOcJJlyC++xZabI0yFn1vw+qTa44YKjJpJepNFUWRlzTBwj4vnHFUlmk4EyWOrkUCawklTIeNpYIxK5vwHfGmzX89g7XeqAJGk2aLgL9ul64mWzn2AtTOL6tRDMpCyUNGJmEVGzMfLaoz3CkP2bCP9QMhHs5Im3N4cv3edw9T3/tMZlnhmtBH3EaQER6YUOD7/qnPTdDbTutyqmLNYarFMcu0eaWDVWunxTBkteVEeWe0n7Lp+Ld7D/KX8EXoZnbO97nSu5BlQqRRvtkqZRN9wPZNg0Baaac69L0lY+zA+hk5xMtchwrCG0bmmEwHX21pRelbHrd9jed3ODloyYxDRYEnBMM6EHuD+fjJeOT42Hjo3G9jY3pgpwRp67cvdwRDm5xpAqQv9yeHjwYrlIGWGfrslXChlPZWbUW3vNtj3LCaqmPCw9sjOs3fc/wN1M=
+  bucket: ''
+  key: ''
+  bundle_type: ''
+  application: ddcCustomerPortal
+  deployment_group: 'ddcGroup'
+  on:
+    all_branches: true
