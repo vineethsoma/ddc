@@ -5,7 +5,7 @@ import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-import * as fromScheduler from "@ddc/scheduler/src/+state/scheduler.reducer";
+import * as fromScheduler from '@ddc/scheduler/src/+state/scheduler.reducer';
 import { ScheduleModule } from 'primeng/schedule';
 
 describe('ViewAppointmentsComponent', () => {
@@ -17,14 +17,12 @@ describe('ViewAppointmentsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot({
-          'scheduler': combineReducers(fromScheduler.reducers)
+          scheduler: combineReducers(fromScheduler.reducers)
         }),
         ScheduleModule
       ],
       declarations: [ViewAppointmentsComponent],
-      providers: [
-        { provide: MatDialog, value: {}}
-      ],
+      providers: [{ provide: MatDialog, value: {} }],
       schemas: [NO_ERRORS_SCHEMA]
     });
 

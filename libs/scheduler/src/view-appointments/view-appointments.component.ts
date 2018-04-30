@@ -58,14 +58,14 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
     );
   }
 
-  goToToday(){
+  goToToday() {
     this.schedule.gotoDate(new Date());
   }
 
   ngAfterViewInit() {
     this.updateCurrentDate();
-    this.schedule.onDayClick.subscribe((_event) => this.selectTimeSlot(_event));
-    this.schedule.onEventClick.subscribe((_event) => this.selectEvent(_event));
+    this.schedule.onDayClick.subscribe(_event => this.selectTimeSlot(_event));
+    this.schedule.onEventClick.subscribe(_event => this.selectEvent(_event));
   }
 
   selectTimeSlot(event: any) {

@@ -52,4 +52,4 @@ export function reducer(
     default:
       return state;
   }
-};
+}

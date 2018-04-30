@@ -14,8 +14,8 @@ describe('ManageAppointmentDialogComponent', () => {
         declarations: [ManageAppointmentDialogComponent],
         schemas: [NO_ERRORS_SCHEMA],
         providers: [
-          {provide: MatDialogRef, value: {}},
-          {provide: MAT_DIALOG_DATA, value: {}}
+          { provide: MatDialogRef, value: {} },
+          { provide: MAT_DIALOG_DATA, value: {} }
         ]
       }).compileComponents();
     })
