@@ -41,9 +41,10 @@ When a change happens to shared libaries the change will be tested accross all t
 
 Refer [here](https://nrwl.io/nx/why-a-workspace) for more details on this.
 
-###Technologies
+### Web Application libraries
 
 #### Angular
+
 Built using [Angular](https://angular.io/) JavaScript framework.
 Some of its key features:
 - Suport for SPA and server-side rendering 
@@ -52,9 +53,11 @@ Some of its key features:
 - Cross platform with single codebase support for Progressive Web Apps, Native (Ionic, Cordova) and Desktop. 
 
 #### RXJS
+
 [RxJS](http://reactivex.io/rxjs/) reactive library for implementing observer-subscriber patterns. It is excellent for declerative design with easily testible pure functions and operators for solving most use cases. 
 
 #### NgRx 
+
 The project is setup with Ngrx for global state management. 
 
 [NgRx](https://github.com/ngrx/platform) is a Flux implementation for Angular 2. It contains the following packages: 
@@ -66,7 +69,17 @@ The project is setup with Ngrx for global state management.
 @ngrx/schematics - Scaffolding library for Angular applications using NgRx.
 
 ### Testing
-Setup for unit testing with [Karma](https://karma-runner.github.io), [Jasmine](https://jasmine.github.io/) and e2e testing with [Protractor](http://www.protractortest.org/). 
+
+Setup for unit testing with [Karma](https://karma-runner.github.io), [Jasmine](https://jasmine.github.io/) and e2e testing with [Protractor](http://www.protractortest.org/).
+
+### Continous Integration
+
+Integration with [Travis](https://travis-ci.com/) to run tests on each commit and PRs for continous integration and testing of the code base. 
+
+### Easy Deployment
+
+For production built the project is built and contaierized in a [Docker](https://www.docker.com/) container for easy deployment onto any of the cloud platforms.
+
 
 
 
