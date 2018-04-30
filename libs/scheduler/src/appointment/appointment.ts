@@ -37,11 +37,14 @@ export class Appointment {
       startTime: this.startTime.toISOString(),
       endTime: this.endTime.toISOString()
     };
+    if(this.id) {
+      dto.id = this.id;
+    }
     return dto;
   }
 }
 
-interface AppointmentDto {
+export interface AppointmentDto {
   id?: string;
   name: string;
   phone: string;

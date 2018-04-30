@@ -58,10 +58,6 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
     );
   }
 
-  goToToday() {
-    this.schedule.gotoDate(new Date());
-  }
-
   ngAfterViewInit() {
     this.updateCurrentDate();
     this.schedule.onDayClick.subscribe(_event => this.selectTimeSlot(_event));
@@ -144,11 +140,13 @@ export class ViewAppointmentsComponent implements OnInit, AfterViewInit {
   }
 }
 
-interface IEvent {
+export interface IEvent {
   id: string;
   start: string;
   end: string;
   title: string;
   color: 'blue' | 'red';
   appointment?: Appointment;
+  textColor: 'white',
+  className: string
 }
